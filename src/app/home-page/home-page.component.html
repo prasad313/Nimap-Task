@@ -1,0 +1,358 @@
+<div [ngClass]="['container-fluid']">
+    <div [ngClass]="['row','']">
+        <div [ngClass]="['col-sm-12']">
+            <img [ngClass]="['img-div','']" src="/assets/bgimg1.jpeg" alt="">
+
+<!-- ****************************************************************************** -->
+           
+        <div [ngClass]="['row','img-div-header']">
+            <div [ngClass]="['col-sm-12']">
+                <app-header></app-header> 
+            </div>
+            
+        </div>
+
+        <div [ngClass]="['row','img-div-body']">
+            <div [ngClass]="['col-sm-1']">
+            </div>
+
+            <div [ngClass]="['col-sm-10']">
+                <div [ngClass]="['div-head','color-white']">
+                     <h2>I'm looking for..</h2>
+                </div>
+               
+                <div [ngClass]="['row','mt-4']">
+                    <div [ngClass]="['col-sm-10','inp-div']">
+                        <input type="text" [ngClass]="['input-style']"  placeholder="Enter a Job Despcription">
+                    </div>
+                   
+                    <div [ngClass]="['col-sm-2','search-btn']">
+                       
+                            <button type="submit" [ngClass]="['btn-color1','btn-style']"><em>Q Search</em></button>
+                          
+                    </div>
+                    
+                </div>
+
+                
+                <div [ngClass]="['row','mt-4']">
+                    <div [ngClass]="['col-sm-5']">
+                      <input type="checkbox" value="full time" name="fullTime" ><span [ngClass]="['color-white','chk-span']">Full Time</span>
+                      <input type="checkbox" value="part time" name="partTime" ><span [ngClass]="['color-white','chk-span']">  Part time/Casual/Freelance</span>
+                    </div>
+                    <div [ngClass]="['col-sm-1']">
+
+                    </div>
+
+                    <div [ngClass]="['col-sm-4','inp-div']">
+                        <select [ngClass]="['input-style','select-btn']" >
+                            <option value="Pune">Select your Loaction</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Kolhapur">Kolhapur</option>
+
+                        </select>
+                       
+                    </div>
+                   
+                    <div [ngClass]="['col-sm-2']">
+                       
+                    </div>
+                    
+                </div>
+
+                <div [ngClass]="['row','mt-5']">
+
+                    <div [ngClass]="['col-sm-5']">                      
+                    </div>
+                    
+                    <div [ngClass]="['col-sm-2']"> 
+                        <button type="submit" [ngClass]="['btn-color1','btn-style']" (click)="openLg(content)"><em>Register</em></button> 
+                    </div>
+
+                    <div [ngClass]="['col-sm-5']">  
+                    </div>
+                       
+                </div>
+
+<!--###############################--Registration Popup Model--######################################################### -->
+<div [ngClass]="['modal-temp']" >
+
+    <ng-template #content let-modal >
+
+        
+
+        <div [ngClass]="['modal-header']">
+            <h4 [ngClass]="['modal-title']">Register</h4>
+            <button type="button" [ngClass]="['btn-close']" aria-label="Close"  (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <!-- Register form -->
+        <form [formGroup]="rgForm" (ngSubmit)="regiserUser()">
+        <div [ngClass]="['modal-body']">
+            
+            <div [ngClass]="['row']">
+                <div [ngClass]="['col-md-3']">
+                    
+                    <div [ngClass]="['imgdiv']" >
+                        <div [ngClass]="['uploadimg']" >
+                            <img [src]="imageUrl" alt="not avilable">
+                        </div>                       
+                    </div>
+                    <div [ngClass]="['img-a']">
+                       
+                        <label for="fileInput" [ngClass]="['custom-file-upload']">
+                            Upload your photo
+                        </label>
+                        <input id="fileInput" (change)="saveImage($event)" type="file" name="image" formControlName='image'  accept="image/*" [ngClass]="['inputfile']">
+                        <!-- <input type="file" (change)="saveImage($event)" /> -->
+                    </div>
+                    
+                    
+                    
+                </div>
+
+                <div [ngClass]="['bdr','col-md-8']">
+
+                    
+
+                        <div [ngClass]="['row','form-row']">
+                            <div [ngClass]="['form-group','col-md-7']" >
+                                <input type="text" [ngClass]="['form-control']" name="firstname" formControlName='firstname'  placeholder="First Name">
+                                <span [ngClass]="['error-msg']" *ngIf="rgForm.controls['firstname'].touched && rgForm.controls['firstname'].errors?.['pattern']" > numbers and special symbols are not allowed </span>
+                                <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['firstname'].touched && rgForm.controls['firstname'].invalid" >Enter Name</span>
+                                
+
+                            </div>
+
+                            <div [ngClass]="['form-group','col-md-5']" >
+                                <input type="text" [ngClass]="['form-control']" name="lastname" formControlName='lastname'  placeholder="Last Name">
+                            </div>
+                        </div>
+
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="email" formControlName='email'  placeholder="Email">
+                            <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['email'].touched && rgForm.controls['email'].invalid" > Enter valid email address</span>
+
+                        </div>
+
+                        
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="contact" formControlName='contact'  placeholder="(541)754-3010">
+                            <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['contact'].touched  && rgForm.controls['contact'].errors?.['pattern']" >Enter valid contact number</span>
+
+                        </div>
+
+                        
+
+                        <div [ngClass]="['form-group' ,'row']">
+                            <div [ngClass]="['form-group','col-md-2']" >
+                                <label for="customRange1" [ngClass]="['form-label']">Age</label>
+                            <!-- <input type="range" [ngClass]="['form-range']" name="age" id="customRange1"  min="20" max="60" step="1" >  -->
+                            </div>
+                             <div [ngClass]="['form-group','col-md-10' ,'range']" >
+                                <input type="range" min="20" max="60" step="1" name="age" formControlName='age' value="{{sliderValue}}" [ngClass]="['form-range']" id="formControlRange" (input)="valueChanged($event)">
+                                <div [ngClass]="['slider']">
+                                    <div   [ngClass]="['agemin']">{{sliderValue}}</div>
+                                    <div [ngClass]="['agemax']">60</div>
+                                </div>                               
+                             </div>
+                             
+
+                        </div>
+
+
+
+                        <div [ngClass]="['form-group']">                      
+                            <select name="country" formControlName='country' [ngClass]="['form-control']" id="">
+                                <option value="" selected disabled>Country</option>
+                                <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                            </select>
+                            <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['country'].touched && rgForm.controls['country'].invalid" >Select Country</span>
+
+                        </div>
+                        
+                        <div [ngClass]="['form-group']">                      
+                            <select name="state" formControlName='state' [ngClass]="['form-control']" id="">
+                                <option value="" selected disabled>State</option>
+                                <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                            </select>
+                            <span   [ngClass]="['error-msg']" *ngIf="rgForm.controls['state'].touched && rgForm.controls['state'].invalid" >Select select state</span>
+
+                        </div>
+                        
+
+
+                        
+
+                                <div [ngClass]="['form-group']">
+                                  <select [ngClass]="['form-control']" id="addressType"   (change)="toggleAddressFields($event)">
+                                    <option value=" " selected disabled>Address</option>
+                                    <option value="home">Home</option>
+                                    <option value="company">Company</option>
+                                  </select>
+                                  <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['homeaddress1'].touched && rgForm.controls['homeaddress1'].invalid" >Enter Home address</span>
+                                  <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['officeaddress1'].touched && rgForm.controls['officeaddress1'].invalid" >Enter Office address</span>
+                                  
+                                </div>
+
+                                <div [ngClass]="['form-group']" *ngIf="AddressType === 'home'">
+
+                                  <label for="address1">Address 1</label>
+                                  <input type="text" [ngClass]="['form-control']" id="address1" name="homeaddress1"  formControlName='homeaddress1' >
+                                  <!-- <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['homeaddress1'].touched && rgForm.controls['homeaddress1'].invalid" >Enter Home address</span> -->
+
+                                  <label for="address2">Address 2</label>
+                                  <input type="text" [ngClass]="['form-control']" id="address2"  name="homeaddress2" formControlName='homeaddress2' >
+                                </div>
+                                <div [ngClass]="['form-group']" *ngIf="AddressType === 'company'">
+                                  <label for="companyAddress1">Company Address 1</label>
+                                  <input type="text" [ngClass]="['form-control']" id="companyAddress1"  name="officeaddress1"  formControlName='officeaddress1'   >
+                                  <!-- <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['officeaddress1'].touched && rgForm.controls['officeaddress1'].invalid" >Enter Office address</span> -->
+
+                                  <label for="companyAddress2">Company Address 2</label>
+                                  <input type="text" [ngClass]="['form-control']" id="companyAddress2" name="officeaddress2"  formControlName='officeaddress2' >
+                                </div>
+
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="tag" formControlName='tag' placeholder="tags" (keydown)="handleInput($event)">
+                            <div *ngFor="let tag of tags; let i = index" [ngClass]="['tag']">
+                                {{ tag }}
+                            </div>
+                            <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['tag'].touched && rgForm.controls['tag'].invalid" >Add Hobbies tag</span>
+                        </div>
+
+
+                        <div [ngClass]="['form-group']">
+                            <div [ngClass]="['form-check']">
+                              <input [ngClass]="['form-check-input']" name="newsletter" formControlName='newsletter' type="checkbox" id="gridCheck">
+                              <label [ngClass]="['form-check-label']" for="gridCheck">
+                                subscribe to newsletter
+                              </label>
+                            </div>
+                          </div>
+
+                          <div [ngClass]="['btn-div']">
+
+                            <button type="button" [ngClass]="['btn','btn-light']"   (click)="modal.close('Close click')"  >Cancel</button>
+                            <input type="submit" value="Submit" [ngClass]="['btn','btn-primary']"  (click)="modal.close('Close click')" >
+                        </div>
+
+
+                    
+                  
+                </div>
+                
+                <div [ngClass]="['col-md-1']">
+                    
+                </div>
+
+            </div>
+
+        
+
+            <!-- ------------- -->
+        </div>
+         </form>
+    </ng-template>
+
+</div>
+
+
+<!--######################################################################################## -->
+
+                <div [ngClass]="['row','mt-3']">
+
+                    <div [ngClass]="['col-sm-5']">                      
+                    </div>
+                    
+                    <div [ngClass]="['col-sm-2','dot']"> 
+                       <ul>
+                        <li [ngClass]="['dot']"> </li>
+                        <li> </li>
+                        <li [ngClass]="['dot']"> </li>
+                        <li [ngClass]="['dot']"> </li>
+                       </ul>
+                    </div>
+
+                   
+
+                    <div [ngClass]="['col-sm-5']">  
+                    </div>
+                       
+                </div>
+
+
+            </div>
+
+            <div [ngClass]="['col-sm-1']">
+            </div>
+
+        </div>
+           
+<!-- ****************************************************************************** -->
+        </div>
+    </div>
+
+
+    <div [ngClass]="['end-img','content','row']">
+        <div [ngClass]="['col-sm-12']" >
+           <div [ngClass]="['mt-5','row']">
+            <div [ngClass]="['col-sm-2']">
+            </div>
+
+            <div [ngClass]="['infodiv1','col-sm-8']">
+                <span><h5>We're leaders in</h5></span>
+                <span><h2>Creative Digital Recruitment</h2></span>
+                
+                <div [ngClass]="['linediv']">
+
+                </div>
+
+            </div>
+
+            <div [ngClass]="['col-sm-2']">
+            </div>
+
+           </div>
+
+           <div  [ngClass]="['mt-5','row']">
+
+                <div [ngClass]="['col-sm-2']">
+                </div>
+
+                <div [ngClass]="['subtext','col-sm-8']">
+                    <h6>Based in Surry Hills, the creative hub of Sydney we are surrounded by creativity </h6>
+                    <h6>and that reflects on the type of jobs we recruit for.</h6>
+                </div>
+
+                <div [ngClass]="['col-sm-2']">
+                </div>
+
+           </div>
+
+           <div  [ngClass]="['mt-5','row','pb-5']">
+
+                <div [ngClass]="['col-sm-5']">
+                </div>
+
+                <div [ngClass]="[ 'col-sm-2']">
+                    <div [ngClass]="[ 'infodiv2']">
+                        <button [ngClass]="[ 'infobtn']" >FIND OUT MORE ABOUT US!</button>
+                    </div>
+                    
+                </div>
+
+                <div [ngClass]="['col-sm-5']">
+                </div>
+
+            </div>
+
+            
+
+
+
+
+        </div>
+    </div>
+
+</div>

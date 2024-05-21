@@ -1,0 +1,318 @@
+ .img-div {
+     /* background-image: url('/assets/HomePageBgImage.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100%;
+
+    border: 2px solid red; */
+     width: 99%;
+     height: 600px;
+     position: absolute;
+
+
+
+ }
+
+ img {
+     filter: blur(6px);
+
+ }
+
+ .img-div-header,
+ .img-div-body {
+     position: relative;
+ }
+
+ .img-div-body {
+     margin-top: 150px;
+ }
+
+
+
+ .nav-menu ul {
+     display: flex;
+     justify-content: right;
+ }
+
+ .nav-menu {
+     padding-top: 20px;
+
+ }
+
+ .nav-menu ul li {
+     list-style: none;
+     margin-right: 15px;
+     color: white;
+ }
+
+
+ .nav-menu ul li a {
+     text-decoration: none;
+ }
+
+ .nav-div {
+     /* display: flex; */
+     border: 1px solid black;
+     /* ustify-content: space-between; */
+ }
+
+
+
+
+ .div-head h2 {
+     font-style: italic;
+ }
+
+ .search-btn {
+     display: flex;
+     justify-content: flex-end;
+
+ }
+
+
+ .input-style {
+     width: 100%;
+     padding: 5px 0px 5px 8px;
+     border: none;
+    
+     color: gray;
+     font-style: italic;
+     border-radius: 2px;
+ }
+
+
+ .inp-div {
+     padding-right: 40px;
+ }
+
+ .select-btn {
+     padding: 8px;
+ }
+
+
+
+ .chk-span {
+     margin-left: 10px;
+     margin-right: 40px;
+     font-style: italic;
+ }
+
+ .dot ul {
+     display: flex;
+     color: white;
+     font-size: 45px;
+ }
+
+ .dot ul li {
+     margin: 10px;
+ }
+
+ 
+ 
+
+ 
+
+
+ .content {
+
+     background-color: #F5F1ED;
+     color: #646464;
+ }
+
+ .infodiv1 {
+     text-align: center;
+
+
+ }
+
+ .infodiv1 span h5 {
+     font-style: italic;
+ }
+
+ .linediv {
+
+     width: 90px;
+     border-bottom: 5px solid #30A2FF;
+     margin-left: 45%;
+     margin-top: 30px;
+ }
+
+ .subtext {
+     text-align: center;
+ }
+
+ .subtext h6 {
+     margin-bottom: 0%;
+     margin-top: 1px;
+ }
+
+ .infodiv2 {
+     text-align: center;
+
+ }
+
+ .infobtn {
+     border: 2px solid #008DDA;
+     border-radius: 5px;
+     color: #008DDA;
+     font-size: 11px;
+     padding: 10px;
+     font-weight: bold;
+     padding-left: 17px;
+     padding-right: 17px;
+
+
+ }
+
+
+
+ /* popup  */
+
+ .modal-header {
+     background-color: #008DDA;
+     color: white;
+ }
+
+ .btn-close {
+     border-radius: 50%;
+     margin-right: 20px;
+ }
+
+ .bdr {
+     
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+
+ .form-group {
+     margin-bottom: 20px;
+ }
+
+ .agemin::after {
+     content: "\00a0";
+     /* Non-breaking space */
+     margin-left: 100px;
+     /* Adjust the margin as needed */
+ }
+
+ .agemax {
+     margin-left: 100px;
+ }
+
+ .range {
+
+     margin-bottom: 10px;
+ }
+
+ input[type=range]::-webkit-slider-thumb {
+     background-color: gray;
+     /* Change to the color you want */
+ }
+
+ .slider {
+     display: flex;
+     justify-content: space-between;
+ }
+
+
+
+
+ 
+
+.tag {
+     display: inline-block;
+     background-color:#8996a0;
+     color: white;
+    font-size: 18px;
+     border-radius: 1px;
+    padding: 4px 10px 4px 10px;
+    
+     margin-right: 25px;
+     margin-top: 10px;
+     cursor: pointer;
+}
+
+.tag:hover {
+     background-color: #e0e0e0;
+}
+
+.tag-remove {
+     margin-left: 15px;
+     cursor: pointer;
+     color: #f0c544;
+     font-size: 20px;
+}
+
+
+.form-check-input
+{
+    background-color:   #646464;
+    border-radius: 2px;
+}
+
+.btn-div
+{
+    text-align: right;
+}
+
+.btn-light{
+    border: 1px solid #646464; 
+    border-radius: 3px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn-primary
+{
+   
+    border-radius: 3px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.uploadimg{
+    height:100px;
+    width: 100px;
+     background-image: url('/assets/photoimgbg.PNG'); 
+
+}
+
+.uploadimg img{
+    height:100px;
+    width: 100px;
+    filter: blur(0px);
+}
+
+.imgdiv
+{
+    display: flex;
+    justify-content: center;
+}
+
+.img-a
+{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.img-a label{
+    color:#30A2FF;
+}
+
+.reviewimg
+{
+    max-width: 100%;
+}
+
+.inputfile{
+    display: none;
+}
+
+.error-msg
+{
+    color: red;
+}

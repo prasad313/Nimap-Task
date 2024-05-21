@@ -1,0 +1,318 @@
+<app-header></app-header>
+<div [ngClass]="['container-fluid']">
+    <div [ngClass]="['row','main-div']">
+        <div [ngClass]="['col-2']">
+        </div>
+
+        <div [ngClass]="['col-8','heading']">
+            <h4>Profile</h4>
+            <div [ngClass]="['row']">
+
+                <div [ngClass]="['imgbtn','col-5']">
+                    <div [ngClass]="['imgdiv']">
+                        <div [ngClass]="['uploadimg']">
+                            <img [ngClass]="['img-size']" [src]="imageUrl" alt="image not avilable">
+                        </div>
+                    </div>
+                    <div [ngClass]="['']">
+                        <button [ngClass]="['profile-btn','btn-style','btn-color2']" (click)="openLg(EditPic)">Edit
+                            Photo</button>
+                        <button [ngClass]="['profile-btn','btn-style','btn-color2']" (click)="openLg(content)">Edit
+                            Profile</button>
+                    </div>
+                </div>
+
+
+
+                <div [ngClass]="['col-7','profile-info']">
+                    <p> I'm <span>{{firstname}} {{lastname}}</span> and Im above <span>{{age}}</span> years and you can
+                        send your emails
+                        to <br> <span>{{email}}</span> I live in the state of <span>{{state}}</span>. I like
+                        to play <span *ngFor="let item of tag">{{item}} </span> <span *ngIf="newsletter">And please send
+                            me newsletters.</span> please reach
+                        out to me on my phone number.
+                    </p>
+
+                    <button [ngClass]="['','btn-style','btn-color3']" (click)="goHome()">I Agree</button>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div [ngClass]="['col-2']">
+        </div>
+    </div>
+</div>
+
+
+<!-- =================================Edit Profile=============================================== -->
+
+
+
+<div [ngClass]="['modal-temp']">
+
+    <ng-template #content let-modal>
+
+
+
+        <div [ngClass]="['modal-header']">
+            <h4 [ngClass]="['modal-title']">Update Profile</h4>
+            <button type="button" [ngClass]="['btn-close']" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <!-- Register form -->
+        <form [formGroup]="rgForm" (ngSubmit)="updateUser()">
+            <div [ngClass]="['modal-body']">
+
+                <div [ngClass]="['row']">
+                    <div [ngClass]="['col-md-3']">
+
+                        <div [ngClass]="['imgdiv']">
+                            <div [ngClass]="['uploadimg2']">
+                                <img [src]="imageUrl" alt="not avilable">
+                            </div>
+                        </div>
+                        <div [ngClass]="['img-a']">
+
+                            <label for="fileInput" [ngClass]="['custom-file-upload']">
+                                Upload your photo
+                            </label>
+                            <input id="fileInput" (change)="updateImage($event,imageId)" type="file" name="image"
+                                formControlName='image' accept="image/*" [ngClass]="['inputfile']">
+                            <!-- <input type="file" (change)="saveImage($event)" /> -->
+                        </div>
+
+
+
+                    </div>
+
+                    <div [ngClass]="['bdr','col-md-8']">
+
+
+
+                        <div [ngClass]="['row','form-row']">
+                            <div [ngClass]="['form-group','col-md-7']">
+                                <input type="text" [ngClass]="['form-control']" name="firstname" [(ngModel)]="firstname"
+                                    formControlName='firstname' placeholder="First Name">
+                                <span [ngClass]="['error-msg']"
+                                    *ngIf="rgForm.controls['firstname'].touched && rgForm.controls['firstname'].invalid">
+                                    Enter valid name (max length 20)</span>
+                            </div>
+
+                            <div [ngClass]="['form-group','col-md-5']">
+                                <input type="text" [ngClass]="['form-control']" name="lastname" [(ngModel)]="lastname"
+                                    formControlName='lastname' placeholder="Last Name">
+                            </div>
+                        </div>
+
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="email" [(ngModel)]="email"
+                                formControlName='email' placeholder="Email">
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['email'].touched && rgForm.controls['email'].invalid"> Enter
+                                valid email address</span>
+
+                        </div>
+
+
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="contact" [(ngModel)]="contact"
+                                formControlName='contact' placeholder="(541)754-3010">
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['contact'].touched && rgForm.controls['contact'].invalid"> Enter
+                                Valid contact number</span>
+
+                        </div>
+
+
+
+                        <div [ngClass]="['form-group' ,'row']">
+                            <div [ngClass]="['form-group','col-md-2']">
+                                <label for="customRange1" [ngClass]="['form-label']">Age</label>
+                                <!-- <input type="range" [ngClass]="['form-range']" name="age" id="customRange1"  min="20" max="60" step="1" >  -->
+                            </div>
+                            <div [ngClass]="['form-group','col-md-10' ,'range']">
+                                <input type="range" min="20" max="60" step="1" name="age" [(ngModel)]="age"
+                                    formControlName='age' value="{{sliderValue}}" [ngClass]="['form-range']"
+                                    id="formControlRange" (input)="valueChanged($event)">
+                                <div [ngClass]="['slider']">
+                                    <div [ngClass]="['agemin']">{{sliderValue}}</div>
+                                    <div [ngClass]="['agemax']">60</div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div [ngClass]="['form-group']">
+                            <select name="country" [(ngModel)]="country" formControlName='country'
+                                [ngClass]="['form-control']" id="">
+                                <option value="" selected disabled>Country</option>
+                                <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                            </select>
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['country'].touched && rgForm.controls['country'].invalid">Select
+                                Country</span>
+
+                        </div>
+
+                        <div [ngClass]="['form-group']">
+                            <select name="state" [(ngModel)]="state" formControlName='state'
+                                [ngClass]="['form-control']" id="">
+                                <option value="" selected disabled>State</option>
+                                <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                            </select>
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['state'].touched && rgForm.controls['state'].invalid">Select
+                                select state</span>
+
+                        </div>
+
+
+
+
+
+                        <div [ngClass]="['form-group']">
+                            <select [ngClass]="['form-control']" id="addressType"
+                                (change)="toggleAddressFields($event)">
+                                <option value=" " selected disabled>Address</option>
+                                <option value="home">Home</option>
+                                <option value="company">Company</option>
+                            </select>
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['homeaddress1'].touched && rgForm.controls['homeaddress1'].invalid">Enter
+                                Home address</span>
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['officeaddress1'].touched && rgForm.controls['officeaddress1'].invalid">Enter
+                                Office address</span>
+
+                        </div>
+
+                        <div [ngClass]="['form-group']" *ngIf="AddressType === 'home'">
+
+                            <label for="address1">Address 1</label>
+                            <input type="text" [ngClass]="['form-control']" id="address1" [(ngModel)]="homeaddress1"
+                                name="homeaddress1" formControlName='homeaddress1'>
+                            <!-- <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['homeaddress1'].touched && rgForm.controls['homeaddress1'].invalid" >Enter Home address</span> -->
+
+                            <label for="address2">Address 2</label>
+                            <input type="text" [ngClass]="['form-control']" id="address2" name="homeaddress2"
+                                [(ngModel)]="homeaddress2" formControlName='homeaddress2'>
+                        </div>
+                        <div [ngClass]="['form-group']" *ngIf="AddressType === 'company'">
+                            <label for="companyAddress1">Company Address 1</label>
+                            <input type="text" [ngClass]="['form-control']" id="companyAddress1"
+                                [(ngModel)]="officeaddress1" name="officeaddress1" formControlName='officeaddress1'>
+                            <!-- <span  [ngClass]="['error-msg']" *ngIf="rgForm.controls['officeaddress1'].touched && rgForm.controls['officeaddress1'].invalid" >Enter Office address</span> -->
+
+                            <label for="companyAddress2">Company Address 2</label>
+                            <input type="text" [ngClass]="['form-control']" id="companyAddress2" name="officeaddress2"
+                                [(ngModel)]="officeaddress1" formControlName='officeaddress2'>
+                        </div>
+
+                        <div [ngClass]="['form-group']">
+                            <input type="text" [ngClass]="['form-control']" name="tag" formControlName='tag'
+                                placeholder="tags" (keydown)="handleInput($event)">
+                            <div *ngFor="let tag of tags; let i = index" [ngClass]="['tag']">
+                                {{ tag }}<span [ngClass]="['tag-remove']" (click)="removeTag(i)">x</span>
+                            </div>
+                            <span [ngClass]="['error-msg']"
+                                *ngIf="rgForm.controls['tag'].touched && rgForm.controls['tag'].invalid">Add Hobbies
+                                tag</span>
+                        </div>
+
+
+                        <div [ngClass]="['form-group']">
+                            <div [ngClass]="['form-check']">
+                                <input [ngClass]="['form-check-input']" name="newsletter" formControlName='newsletter'
+                                    type="checkbox" id="gridCheck">
+                                <label [ngClass]="['form-check-label']" for="gridCheck">
+                                    subscribe to newsletter
+                                </label>
+                            </div>
+                        </div>
+
+                        <div [ngClass]="['btn-div']">
+
+                            <button type="button" [ngClass]="['btn','btn-light']"
+                                (click)="modal.close('Close click')">Cancel</button>
+                            <input type="submit" value="Update" [ngClass]="['btn','btn-primary']"
+                                (click)="modal.close('Close click')">
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div [ngClass]="['col-md-1']">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ------------- -->
+            </div>
+        </form>
+    </ng-template>
+
+</div>
+<!-- ============================================================================================ -->
+
+
+
+
+<!-- =================================Edit Photo=============================================== -->
+
+
+
+<div [ngClass]="['modal-temp']">
+
+    <ng-template #EditPic let-modal>
+
+
+
+        <div [ngClass]="['modal-header']">
+            <h4 [ngClass]="['modal-title']">Edit Photo</h4>
+            <button type="button" [ngClass]="['btn-close']" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <!-- Edit Photo -->
+
+        <div [ngClass]="['modal-body']">
+
+            <div [ngClass]="['row']">
+                <div [ngClass]="['col-md-4']"></div>
+
+                <div [ngClass]="['col-md-4']">
+                    <div [ngClass]="['imgdiv']">
+                        <div [ngClass]="['uploadimg2']">
+                            <img [src]="imageUrl" alt="not avilable">
+                        </div>
+                    </div>
+                    <div [ngClass]="['img-a']">
+
+                        <label for="fileInput" [ngClass]="['custom-file-upload']">
+                            Upload your photo
+                        </label>
+                        <input id="fileInput" (change)="updateImage($event,imageId)" type="file" name="image"
+                            formControlName='image' accept="image/*" [ngClass]="['inputfile']">
+                        <!-- <input type="file" (change)="saveImage($event)" /> -->
+                    </div>
+                </div>
+
+                <div [ngClass]="['col-md-4']"></div>
+            </div>
+
+        </div>
+
+    </ng-template>
+
+</div>
+<!-- ============================================================================================ -->

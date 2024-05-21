@@ -1,0 +1,58 @@
+.nav-menu ul{
+    display: flex;
+    justify-content: right;
+}
+
+.nav-menu{
+    /* padding-top: 20px; */
+}
+
+
+
+
+
+.nav-menu ul li{
+    list-style: none;
+    margin-right: 15px;
+}
+
+.nav-menu ul li a
+{
+    text-decoration: none;
+    color:white;
+    
+}
+
+.nav-div
+{
+    /* display: flex; */
+    /* border:1px solid black; */
+    /* ustify-content: space-between; */
+
+    padding-top:50px;
+    /* background-color:#009DD1; */
+    
+}
+
+.nav-div2
+{
+background-color: #30A2FF;
+}
+
+
+
+
+
+
+
+.title-div
+{
+    background-color: white;
+    width: 120px;
+}
+
+.title-d
+{
+    background-color:dodgerblue ;
+    width: 120px;
+}

@@ -1,0 +1,46 @@
+{
+  "users": [
+   
+    {
+      "firstname": "vivek",
+      "lastname": "bhaskar",
+      "email": "vivek@gmail.com",
+      "contact": "8007756670",
+      "age": 23,
+      "state": "Maharashtra",
+      "country": "India",
+      "officeaddress1": "",
+      "officeaddress2": "",
+      "homeaddress1": "",
+      "homeaddress2": "",
+      "tag": [],
+      "newsletter": "",
+      "image": "",
+      "id": "03ae"
+    },
+    {
+      "id": "8628",
+      "firstname": "vivek",
+      "lastname": "bhaskar",
+      "email": "vivek@gmail.com",
+      "contact": "8007756670",
+      "age": 24,
+      "state": "Maharashtra",
+      "country": "India",
+      "officeaddress1": "pune ",
+      "officeaddress2": "pune",
+      "homeaddress1": "pune",
+      "homeaddress2": "pune",
+      "tag": [
+        "handball"
+      ],
+      "newsletter": true,
+      "image": "c7a1"
+    }
+  ],
+  "images": [
+    {
+      "id": "3e0f"
+    }
+  ]
+}

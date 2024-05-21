@@ -1,0 +1,65 @@
+<div [ngClass]="['container-fluid']">
+    <div *ngIf="menuType=='home'"  [ngClass]="['row']">
+      
+            <nav>
+             <div [ngClass]="['row','nav-div']">
+
+                <div [ngClass]="['col-sm-1']">
+
+                </div>
+
+                <div [ngClass]="['col-sm-3','nav-head']">
+                    <div [ngClass]="['title-div']" ><h4>{{title}}</h4></div>
+                </div>
+
+                <div [ngClass]="['col-sm-7','nav-menu']">
+                    <ul>
+                        <li><a routerLink="/home-page" >HOME</a></li>
+                        <li><a routerLink="/home-page" >ABOUT US</a></li>
+                        <li><a routerLink="/home-page" >JOBS</a></li>
+                        <li><a routerLink="/home-page" >CLIENTS</a></li>
+                        <li><a routerLink="/home-page" >EMPLOYERS</a></li>
+                        <li><a routerLink="/home-page" >CONTACT US</a></li>
+                    </ul>
+                </div>
+                <div [ngClass]="['col-sm-1']">
+
+                </div>
+             </div>
+            </nav>
+        
+    </div>
+
+
+    <div *ngIf="menuType=='profile'"  [ngClass]="['row']">
+      
+            <nav>
+             <div [ngClass]="['row','nav-div2','nav-div']">
+
+                <div [ngClass]="['col-sm-1']">
+
+                </div>
+
+                <div [ngClass]="['col-sm-3','nav-head']">
+                    <div [ngClass]="['title-d']" ><h4>{{title}}</h4></div>
+                </div>
+
+                <div [ngClass]="['col-sm-7','nav-menu']">
+                    <ul>
+                        <li><a href="#"  [ngClass]="['active-link2']">HOME</a></li>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">JOBS</a></li>
+                        <li><a href="#">CLIENTS</a></li>
+                        <li><a href="#">EMPLOYERS</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                    </ul>
+                </div>
+                <div [ngClass]="['col-sm-1']">
+
+                </div>
+             </div>
+            </nav>
+        
+    </div>
+
+</div>

@@ -1,0 +1,198 @@
+.profile-info{
+ font-size: 18px;
+}
+
+
+.imgdiv
+{
+    display: flex;
+    justify-content: center;
+}
+
+.uploadimg
+{
+    width: 250px;
+    height: 250px;
+}
+
+.uploadimg img
+{ 
+    width: 250px;
+    height: 250px;
+}
+
+.profile-btn
+{
+    margin-top: 10px;
+   margin: 15px;
+    color: #646464;
+}
+
+.imgbtn{
+    text-align: center;
+}
+
+.img-size{
+     width: 250px;
+    height: 250px;
+  
+}
+
+.main-div{
+    margin-top: 30px;
+    padding-bottom: 300px;
+}
+
+
+.heading h4
+{
+    color: #008DDA;
+    margin-left: 50px;
+}
+
+
+
+ /* popup  */
+
+ .modal-header {
+    background-color: #008DDA;
+    color: white;
+}
+
+.btn-close {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.bdr {
+    
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.agemin::after {
+    content: "\00a0";
+    /* Non-breaking space */
+    margin-left: 100px;
+    /* Adjust the margin as needed */
+}
+
+.agemax {
+    margin-left: 100px;
+}
+
+.range {
+
+    margin-bottom: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: gray;
+    /* Change to the color you want */
+}
+
+.slider {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+.tag {
+    display: inline-block;
+    background-color:#8996a0;
+    color: white;
+   font-size: 18px;
+    border-radius: 1px;
+   padding: 4px 10px 4px 10px;
+   
+    margin-right: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background-color: #e0e0e0;
+}
+
+.tag-remove {
+    margin-left: 15px;
+    cursor: pointer;
+    color: #f0c544;
+    font-size: 20px;
+}
+
+
+.form-check-input
+{
+   background-color:   #646464;
+   border-radius: 2px;
+}
+
+.btn-div
+{
+   text-align: right;
+}
+
+.btn-light{
+   border: 1px solid #646464; 
+   border-radius: 3px;
+   margin-right: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+.btn-primary
+{
+  
+   border-radius: 3px;
+   margin-right: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+
+
+.imgdiv
+{
+   display: flex;
+   justify-content: center;
+}
+
+.img-a
+{
+   text-align: center;
+   margin-top: 10px;
+}
+
+.img-a label{
+   color:#30A2FF;
+}
+
+.reviewimg
+{
+   max-width: 100%;
+}
+
+.inputfile{
+   display: none;
+}
+
+.error-msg
+{
+   color: red;
+}
+
+
+.uploadimg2 img{
+    height:100px;
+    width: 100px;
+    filter: blur(0px);
+}
